@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Closetry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.659), rgba(255, 255, 255, 0.659)), 
+            url('images/banner.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(252, 228, 236, 0.95);
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-style: italic;
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #5d4037;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b4513;
+        }
+
+        /* Main Content */
+        .container {
+            flex: 1;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .welcome-text {
+            font-size: 3rem;
+            color: #8b4513;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: #a1887f;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .action-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Gallery Sections */
+        .gallery-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #8b4513;
+            font-style: italic;
+        }
+
+        .see-more-btn {
+            background: none;
+            border: 2px solid #d7ccc8;
+            color: #8b4513;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .see-more-btn:hover {
+            background-color: #d7ccc8;
+            color: white;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .empty-item {
+            color: #d7ccc8;
+            font-size: 3rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #a1887f;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        /* Sign Out Section */
+        .sign-out-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .sign-out-btn {
+            background: none;
+            border: 2px solid #d7ccc8;
+            color: #8b4513;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+        }
+
+        .sign-out-btn:hover {
+            background-color: #d7ccc8;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Decorative elements */
+        .decoration {
+            position: fixed;
+            opacity: 0.08;
+            pointer-events: none;
+            font-size: 8rem;
+        }
+
+        .decoration.top-left {
+            top: 15%;
+            left: 5%;
+            transform: rotate(-15deg);
+        }
+
+        .decoration.bottom-right {
+            bottom: 10%;
+            right: 5%;
+            transform: rotate(15deg);
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .welcome-text {
+                font-size: 2rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative elements -->
+
+    <header>
+        <div class="logo">Closetry</div>
+        <nav>
+            <a href="#">Closetry</a>
+            <a href="#">Dressfleet</a>
+            <a href="#">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1 class="welcome-text">Your Personal Wardrobe</h1>
+            <p class="subtitle">Curated with Style</p>
+            
+            <div class="action-buttons">
+                <button class="action-btn" id="uploadBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    Upload Clothes
+                </button>
+
+                <button class="action-btn" id="recommendBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    Generate outfit
+                </button>
+            </div>
+        </div>
+
+        <!-- My Clothes Section -->
+        <div class="gallery-section">
+            <div class="section-header">
+                <h2 class="section-title">My Clothes</h2>
+                <button class="see-more-btn" id="seeMoreClothes">See More →</button>
+            </div>
+            <div class="gallery-grid" id="clothesGrid">
+                <!-- Placeholder items - replace with actual uploaded images -->
+                <div class="gallery-item">
+                    <div class="empty-item">👗</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="empty-item">👔</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="empty-item">👖</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="empty-item">👠</div>
+                </div>
+            </div>
+            <!-- Uncomment for empty state -->
+            <!-- <div class="empty-state">
+                <div class="empty-state-icon">📸</div>
+                <p>No clothes uploaded yet. Start building your wardrobe!</p>
+            </div> -->
+        </div>
+
+        <!-- Generated Outfits Section -->
+        <div class="gallery-section">
+            <div class="section-header">
+                <h2 class="section-title">Generated Outfits</h2>
+                <button class="see-more-btn" id="seeMoreOutfits">See More →</button>
+            </div>
+            <div class="gallery-grid" id="outfitsGrid">
+                <!-- Placeholder items - replace with generated outfits -->
+                <div class="gallery-item">
+                    <div class="empty-item">✨</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="empty-item">🌟</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="empty-item">💫</div>
+                </div>
+                <div class="gallery-item">
+                    <div class="empty-item">⭐</div>
+                </div>
+            </div>
+            <!-- Uncomment for empty state -->
+            <!-- <div class="empty-state">
+                <div class="empty-state-icon">🎨</div>
+                <p>No outfits generated yet. Click "Get Recommendation" to start!</p>
+            </div> -->
+        </div>
+
+        <!-- Sign Out Section -->
+        <div class="sign-out-section">
+            <button class="sign-out-btn" id="signOutBtn">Sign Out</button>
+        </div>
+    </div>
+
+    <script>
+        // Upload button
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            console.log('Navigate to upload page');
+            // window.location.href = 'upload.html';
+        });
+
+        // Recommendation button
+        document.getElementById('recommendBtn').addEventListener('click', () => {
+            console.log('Navigate to recommendations page');
+            // window.location.href = 'recommendations.html';
+        });
+
+        // See more buttons
+        document.getElementById('seeMoreClothes').addEventListener('click', () => {
+            console.log('View all clothes');
+            // window.location.href = 'all-clothes.html';
+        });
+
+        document.getElementById('seeMoreOutfits').addEventListener('click', () => {
+            console.log('View all outfits');
+            // window.location.href = 'all-outfits.html';
+        });
+
+        // Sign out button
+        document.getElementById('signOutBtn').addEventListener('click', () => {
+            console.log('Sign out clicked');
+            // window.location.href = 'index.html';
+        });
+
+        // Gallery item clicks
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                console.log('Gallery item clicked');
+                // Open modal or detail view
+            });
+        });
+    </script>
+</body>
+</html>

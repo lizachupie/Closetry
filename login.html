@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.659), rgba(255, 255, 255, 0.659)), 
+      url('images/banner.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .login-card h2 {
+      margin-bottom: 30px;
+      margin-top: 20px;
+      font-weight: 600;
+      font-family: Lucida;
+      color: #6b0000;
+      font-size: 30px;
+    }
+
+.brand {
+      font-family: "Playfair Display", serif;
+      font-style: italic;  
+      letter-spacing: 1px;
+      background: rgb(131, 17, 17);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      font-size: 13px;
+      color: #ce0000;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .forgot {
+      font-size: 12px;
+      color: #777;
+      text-decoration: none;
+      display: block;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(to right, #630000, #7c0000);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 25px;
+    }
+
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .or {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .facebook { background: #3b5998; }
+    .twitter { background: #1da1f2; }
+    .google { background: #db4437; }
+
+    .signup-text {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .signup-link {
+      font-size: 13px;
+      font-weight: bold;
+      color: rgb(131, 17, 17);
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-card">
+      <h2>Sign in <span class="brand">Closetry</span></h2>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Type your email">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Type your password">
+      </div>
+
+
+      <button class="login-btn" id="loginBtn">LOGIN</button>
+
+
+
+
+      <p class="signup-text">Or</p>
+      <a href="#" class="signup-link">register</a>
+    </div>
+  </div>
+
+  <!-- Firebase login logic -->
+  <script type="module" src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
