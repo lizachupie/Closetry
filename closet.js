@@ -26,6 +26,8 @@ submitBtn.onclick = async () => {
   }
 
   try {
+    console.log("Logged in UID:", user.uid);
+    console.log("Logged in Email:", user.email);
     const storageRef = ref(storage, `clothes/${user.uid}/${file.name}`);
     await uploadBytes(storageRef, file);
     const url = await getDownloadURL(storageRef);
