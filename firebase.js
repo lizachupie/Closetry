@@ -4,12 +4,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyALfVbFGOFPXOM_EUJcbdACKojDa0l-xoM",
+  authDomain: "wardrobe-3a33f.firebaseapp.com",
+  projectId: "wardrobe-3a33f",
+  storageBucket: "wardrobe-3a33f.firebasestorage.app",
+  messagingSenderId: "617616002714",
+  appId: "1:617616002714:web:b5d7c3639e54781ce21923",
+  measurementId: "G-64KRNEQW9D"
 };
 
 const app = initializeApp(firebaseConfig);

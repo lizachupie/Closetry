@@ -285,9 +285,7 @@
     <header>
         <div class="logo">Closetry</div>
         <nav>
-            <a href="#">Closetry</a>
-            <a href="#">Dressfleet</a>
-            <a href="#">Blog</a>
+            <a href="index.html">Sign Out</a>
         </nav>
     </header>
 
@@ -298,7 +296,7 @@
             <p class="subtitle">Curated with Style</p>
             
             <div class="action-buttons">
-                <button class="action-btn" id="uploadBtn">
+                <button class="action-btn" onclick="window.location.href='closet.html'">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                         <polyline points="17 8 12 3 7 8"/>
@@ -307,7 +305,7 @@
                     Upload Clothes
                 </button>
 
-                <button class="action-btn" id="recommendBtn">
+                <button class="action-btn" onclick="window.location.href='outfits.html'">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                     </svg>
@@ -379,18 +377,6 @@
     </div>
 
     <script>
-        // Upload button
-        document.getElementById('uploadBtn').addEventListener('click', () => {
-            console.log('Navigate to upload page');
-            // window.location.href = 'upload.html';
-        });
-
-        // Recommendation button
-        document.getElementById('recommendBtn').addEventListener('click', () => {
-            console.log('Navigate to recommendations page');
-            // window.location.href = 'recommendations.html';
-        });
-
         // See more buttons
         document.getElementById('seeMoreClothes').addEventListener('click', () => {
             console.log('View all clothes');

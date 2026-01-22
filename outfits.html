@@ -2,16 +2,236 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Generate Outfit</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Outfit - Closetry</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+
+    body {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.659), rgba(255, 255, 255, 0.659)), 
+      url('images/banner.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      color: #8b4513;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      color: #8b4513;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    select {
+      padding: 0.8rem;
+      border: 2px solid #d7ccc8;
+      border-radius: 10px;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #5d4037;
+    }
+
+    .generate-btn {
+      background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .outfit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .outfit-item {
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .outfit-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .outfit-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .no-outfits {
+      color: #a1887f;
+      font-style: italic;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Generate Your Perfect Outfit</h1>
+    
+    <div class="filters">
+      <div class="filter-group">
+        <label for="season">Season</label>
+        <select id="season">
+          <option value="">Any Season</option>
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="autumn">Autumn</option>
+          <option value="winter">Winter</option>
+          <option value="all-season">All Season</option>
+        </select>
+      </div>
 
-<h2>Your Outfit</h2>
-<button id="generateBtn">Generate Outfit</button>
+      <div class="filter-group">
+        <label for="style">Style</label>
+        <select id="style">
+          <option value="">Any Style</option>
+          <option value="casual">Casual</option>
+          <option value="formal">Formal</option>
+          <option value="business">Business</option>
+          <option value="streetwear">Streetwear</option>
+          <option value="athletic">Athletic</option>
+          <option value="bohemian">Bohemian</option>
+          <option value="vintage">Vintage</option>
+          <option value="minimalist">Minimalist</option>
+        </select>
+      </div>
 
-<div id="outfit"></div>
+      <div class="filter-group">
+        <label for="occasion">Occasion</label>
+        <select id="occasion">
+          <option value="">Any Occasion</option>
+          <option value="everyday">Everyday</option>
+          <option value="work">Work</option>
+          <option value="party">Party</option>
+          <option value="date">Date Night</option>
+          <option value="sport">Sport/Gym</option>
+          <option value="beach">Beach</option>
+          <option value="formal-event">Formal Event</option>
+        </select>
+      </div>
+    </div>
 
-<script type="module" src="js/outfits.js"></script>
+    <button class="generate-btn" id="generateBtn">Generate Outfit</button>
+
+    <div class="outfit-grid" id="outfitGrid"></div>
+  </div>
+
+  <script type="module">
+    import { auth, db } from "./firebase.js";
+    import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    document.getElementById("generateBtn").addEventListener("click", async () => {
+      const user = auth.currentUser;
+      if (!user) {
+        alert("Please log in first!");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const season = document.getElementById("season").value;
+      const style = document.getElementById("style").value;
+      const occasion = document.getElementById("occasion").value;
+
+      const outfitGrid = document.getElementById("outfitGrid");
+      outfitGrid.innerHTML = "<p>Loading...</p>";
+
+      try {
+        let q = query(collection(db, "clothes"), where("uid", "==", user.uid));
+
+        // Apply filters if selected
+        const filters = [];
+        if (season) filters.push(where("season", "array-contains", season));
+        if (style) filters.push(where("style", "array-contains", style));
+        if (occasion) filters.push(where("occasion", "array-contains", occasion));
+
+        // Note: Firestore doesn't support multiple array-contains in one query easily.
+        // For simplicity, we'll fetch all user clothes and filter client-side.
+        const snapshot = await getDocs(q);
+        let clothes = [];
+        snapshot.forEach(doc => {
+          clothes.push(doc.data());
+        });
+
+        // Client-side filtering
+        if (season) clothes = clothes.filter(item => item.season && item.season.includes(season));
+        if (style) clothes = clothes.filter(item => item.style && item.style.includes(style));
+        if (occasion) clothes = clothes.filter(item => item.occasion && item.occasion.includes(occasion));
+
+        // Shuffle and pick up to 4 items
+        clothes = clothes.sort(() => 0.5 - Math.random()).slice(0, 4);
+
+        if (clothes.length === 0) {
+          outfitGrid.innerHTML = "<p class='no-outfits'>No matching outfits found. Try different filters!</p>";
+          return;
+        }
+
+        outfitGrid.innerHTML = "";
+        clothes.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "outfit-item";
+          div.innerHTML = `<img src="${item.image}" alt="Outfit item">`;
+          outfitGrid.appendChild(div);
+        });
+      } catch (error) {
+        console.error("Error generating outfit:", error);
+        outfitGrid.innerHTML = "<p class='no-outfits'>Error loading outfits. Try again.</p>";
+      }
+    });
+  </script>
 </body>
 </html>

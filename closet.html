@@ -288,9 +288,7 @@
     <header>
         <div class="logo">Closetry</div>
         <nav>
-            <a href="#">Closetry</a>
-            <a href="#">Dressfleet</a>
-            <a href="#">Blog</a>
+            <a href="index.html">Sign out</a>
             <button class="back-btn" onclick="history.back()">← Back</button>
         </nav>
     </header>
@@ -400,7 +398,7 @@
 
                 <div class="submit-section">
                     <button type="button" class="cancel-btn" onclick="history.back()">Cancel</button>
-                    <button type="submit" class="submit-btn" id="submitBtn" disabled>Add to Closet</button>
+                    <button type="button" class="submit-btn" id="submitBtn" disabled>Add to Closet</button>
                 </div>
             </form>
         </div>
@@ -466,23 +464,9 @@
         // Form submission
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
-            const formData = {
-                file: fileInput.files[0],
-                name: document.getElementById('itemName').value,
-                category: document.getElementById('category').value,
-                color: document.getElementById('color').value,
-                season: document.getElementById('season').value,
-                style: document.getElementById('style').value,
-                occasion: document.getElementById('occasion').value,
-                brand: document.getElementById('brand').value
-            };
-
-            console.log('Submitting clothing item:', formData);
-            alert('Clothing item added successfully!');
-            // Add your upload logic here
-            // window.location.href = 'user.html';
+            // Upload handled by closet.js
         });
     </script>
+    <script type="module" src="closet.js"></script>
 </body>
 </html>
