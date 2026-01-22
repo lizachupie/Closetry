@@ -209,30 +209,6 @@
             opacity: 0.3;
         }
 
-        /* Sign Out Section */
-        .sign-out-section {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .sign-out-btn {
-            background: none;
-            border: 2px solid #d7ccc8;
-            color: #8b4513;
-            padding: 0.8rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Georgia', serif;
-        }
-
-        .sign-out-btn:hover {
-            background-color: #d7ccc8;
-            color: white;
-            transform: translateY(-2px);
-        }
-
         /* Decorative elements */
         .decoration {
             position: fixed;
@@ -285,7 +261,7 @@
     <header>
         <div class="logo">Closetry</div>
         <nav>
-            <a href="index.html">Sign Out</a>
+            <a href="index.html" id="signOutBtn">Sign out</a>
         </nav>
     </header>
 
@@ -335,45 +311,8 @@
                     <div class="empty-item">👠</div>
                 </div>
             </div>
-            <!-- Uncomment for empty state -->
-            <!-- <div class="empty-state">
-                <div class="empty-state-icon">📸</div>
-                <p>No clothes uploaded yet. Start building your wardrobe!</p>
-            </div> -->
         </div>
 
-        <!-- Generated Outfits Section -->
-        <div class="gallery-section">
-            <div class="section-header">
-                <h2 class="section-title">Generated Outfits</h2>
-                <button class="see-more-btn" id="seeMoreOutfits">See More →</button>
-            </div>
-            <div class="gallery-grid" id="outfitsGrid">
-                <!-- Placeholder items - replace with generated outfits -->
-                <div class="gallery-item">
-                    <div class="empty-item">✨</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="empty-item">🌟</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="empty-item">💫</div>
-                </div>
-                <div class="gallery-item">
-                    <div class="empty-item">⭐</div>
-                </div>
-            </div>
-            <!-- Uncomment for empty state -->
-            <!-- <div class="empty-state">
-                <div class="empty-state-icon">🎨</div>
-                <p>No outfits generated yet. Click "Get Recommendation" to start!</p>
-            </div> -->
-        </div>
-
-        <!-- Sign Out Section -->
-        <div class="sign-out-section">
-            <button class="sign-out-btn" id="signOutBtn">Sign Out</button>
-        </div>
     </div>
 
     <script>
@@ -381,17 +320,6 @@
         document.getElementById('seeMoreClothes').addEventListener('click', () => {
             console.log('View all clothes');
             // window.location.href = 'all-clothes.html';
-        });
-
-        document.getElementById('seeMoreOutfits').addEventListener('click', () => {
-            console.log('View all outfits');
-            // window.location.href = 'all-outfits.html';
-        });
-
-        // Sign out button
-        document.getElementById('signOutBtn').addEventListener('click', () => {
-            console.log('Sign out clicked');
-            // window.location.href = 'index.html';
         });
 
         // Gallery item clicks

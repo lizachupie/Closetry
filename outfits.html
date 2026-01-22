@@ -12,6 +12,59 @@
       font-family: 'Georgia', serif;
     }
 
+    header {
+      background-color: rgba(252, 228, 236, 0.95);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-style: italic;
+      color: #8b4513;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #5d4037;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #8b4513;
+    }
+
+    .back-btn {
+      background: none;
+      border: 2px solid #d7ccc8;
+      color: #8b4513;
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Georgia', serif;
+    }
+
+    .back-btn:hover {
+      background-color: #d7ccc8;
+      color: white;
+    }
+
     body {
       background-image: linear-gradient(rgba(255, 255, 255, 0.659), rgba(255, 255, 255, 0.659)), 
       url('images/banner.png');
@@ -22,8 +75,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2rem;
     }
 
     .container {
@@ -34,6 +85,7 @@
       max-width: 800px;
       width: 100%;
       text-align: center;
+      margin-top: 12.5rem;
     }
 
     h1 {
@@ -120,6 +172,14 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">Closetry</div>
+    <nav>
+      <a href="index.html" id="signOutBtn">Sign out</a>
+      <button class="back-btn" onclick="history.back()">← Back</button>
+    </nav>
+  </header>
+
   <div class="container">
     <h1>Generate Your Perfect Outfit</h1>
     

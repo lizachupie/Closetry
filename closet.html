@@ -25,8 +25,8 @@
 
         /* Header */
         header {
-            background-color: rgba(252, 228, 236, 0.95);
-            padding: 1.5rem 3rem;
+            background-color: rgba(255, 224, 225, 0.74);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -70,7 +70,7 @@
         }
 
         .back-btn:hover {
-            background-color: #d7ccc8;
+            background-color: #6b0000;
             color: white;
         }
 
@@ -87,21 +87,21 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 3rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(219, 20, 20, 0.1);
             max-width: 800px;
             width: 100%;
         }
 
         .page-title {
             font-size: 2.5rem;
-            color: #8b4513;
+            color: #6b0000;
             margin-bottom: 0.5rem;
             font-style: italic;
             text-align: center;
         }
 
         .page-subtitle {
-            color: #a1887f;
+            color: #8f0808;
             font-size: 1rem;
             margin-bottom: 2.5rem;
             text-align: center;
@@ -109,7 +109,7 @@
 
         /* Upload Area */
         .upload-area {
-            border: 3px dashed #d7ccc8;
+            border: 3px dashed #6b0000;
             border-radius: 15px;
             padding: 3rem;
             text-align: center;
@@ -120,37 +120,37 @@
         }
 
         .upload-area:hover {
-            border-color: #bcaaa4;
-            background: rgba(252, 228, 236, 0.4);
+            border-color: #8f0808;
+            background: rgba(255, 224, 225, 0.322);
         }
 
         .upload-area.has-file {
-            border-color: #8b4513;
-            background: rgba(139, 69, 19, 0.05);
+            border-color: #6b0000;
+            background: rgba(255, 182, 184, 0.473);
         }
 
         .upload-icon {
             width: 60px;
             height: 60px;
             margin: 0 auto 1rem;
-            stroke: #d7ccc8;
+            stroke: #6b0000;
         }
 
         .upload-text {
-            color: #8b4513;
+            color: #6b0000;
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
         .upload-subtext {
-            color: #a1887f;
+            color: #8f0808;
             font-size: 0.9rem;
         }
 
         .file-preview {
             display: none;
             margin-top: 1rem;
-            color: #8b4513;
+            color: #6b0000;
             font-weight: bold;
         }
 
@@ -176,7 +176,7 @@
         }
 
         label {
-            color: #8b4513;
+            color: #6b0000;
             font-size: 1rem;
             margin-bottom: 0.5rem;
             font-weight: bold;
@@ -184,18 +184,18 @@
 
         select, input[type="text"] {
             padding: 0.8rem 1rem;
-            border: 2px solid #d7ccc8;
+            border: 2px solid #6b0000a4;
             border-radius: 10px;
             font-family: 'Georgia', serif;
             font-size: 0.95rem;
-            color: #5d4037;
+            color: #6b0000;
             background: white;
             transition: all 0.3s;
         }
 
         select:focus, input[type="text"]:focus {
             outline: none;
-            border-color: #bcaaa4;
+            border-color: #6b000085;
         }
 
         /* Submit Button */
@@ -207,7 +207,7 @@
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
+            background: linear-gradient(135deg, #6b0000 0%, #6b0000 100%);
             color: white;
             border: none;
             padding: 1rem 3rem;
@@ -231,8 +231,8 @@
 
         .cancel-btn {
             background: none;
-            border: 2px solid #d7ccc8;
-            color: #8b4513;
+            border: 2px solid #6b0000;
+            color: #6b0000;
             padding: 1rem 2rem;
             border-radius: 50px;
             font-size: 1rem;
@@ -242,7 +242,7 @@
         }
 
         .cancel-btn:hover {
-            background-color: #d7ccc8;
+            background-color: #6b0000;
             color: white;
         }
 
@@ -288,7 +288,7 @@
     <header>
         <div class="logo">Closetry</div>
         <nav>
-            <a href="index.html">Sign out</a>
+            <a href="index.html" id="signOutBtn">Sign out</a>
             <button class="back-btn" onclick="history.back()">← Back</button>
         </nav>
     </header>
