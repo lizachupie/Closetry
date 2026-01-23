@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+  <iframe src="../header/header.html" style="border: none; width: 100%; height: 70px; display: block; position: fixed; top: 0; left: 0; z-index: 1000; overflow: hidden;"></iframe>
+
+  <div class="register-container">
+    <div class="register-card">
+      <h2>Join <span class="brand">Closetry</span></h2>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Create a password">
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm your password">
+      </div>
+
+      <button class="register-btn" id="registerBtn">REGISTER</button>
+
+      <p class="login-text">Already have an account?</p>
+      <a href="../login/login.html" class="login-link">LOGIN</a>
+    </div>
+  </div>
+
+  <script type="module" src="register.js"></script>
+
+</body>
+</html>

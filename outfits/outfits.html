@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Outfit - Closetry</title>
+  <link rel="stylesheet" href="outfits.css">
+</head>
+<body>
+  <iframe src="../header/header.html" style="border: none; width: 100%; height: 70px; display: block; position: fixed; top: 0; left: 0; z-index: 1000; overflow: hidden;"></iframe>
+
+  <div class="container">
+    <h1>Generate Your Perfect Outfit</h1>
+    
+    <div class="filters">
+      <div class="filter-group">
+        <label for="season">Season</label>
+        <select id="season">
+          <option value="">Any Season</option>
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="autumn">Autumn</option>
+          <option value="winter">Winter</option>
+          <option value="all-season">All Season</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="style">Style</label>
+        <select id="style">
+          <option value="">Any Style</option>
+          <option value="casual">Casual</option>
+          <option value="formal">Formal</option>
+          <option value="business">Business</option>
+          <option value="streetwear">Streetwear</option>
+          <option value="athletic">Athletic</option>
+          <option value="bohemian">Bohemian</option>
+          <option value="vintage">Vintage</option>
+          <option value="minimalist">Minimalist</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="occasion">Occasion</label>
+        <select id="occasion">
+          <option value="">Any Occasion</option>
+          <option value="everyday">Everyday</option>
+          <option value="work">Work</option>
+          <option value="party">Party</option>
+          <option value="date">Date Night</option>
+          <option value="sport">Sport/Gym</option>
+          <option value="beach">Beach</option>
+          <option value="formal-event">Formal Event</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="generate-btn" id="generateBtn">Generate Outfit</button>
+
+    <div class="outfit-grid" id="outfitGrid"></div>
+  </div>
+
+  <script type="module" src="outfits.js"></script>
+</body>
+</html>

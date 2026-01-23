@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Clothing - Closetry</title>
+    <link rel="stylesheet" href="closet.css">
+</head>
+<body>
+    <iframe src="../header/header.html" style="border: none; width: 100%; height: 70px; display: block; position: fixed; top: 0; left: 0; z-index: 1000; overflow: hidden;"></iframe>
+
+    <div class="container">
+        <div class="upload-panel">
+            <h1 class="page-title">Add Clothing Item</h1>
+            <p class="page-subtitle">Build your digital wardrobe with style</p>
+
+            <div class="upload-area" id="uploadArea">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <div class="upload-text">Choose a photo of your clothing item</div>
+                <div class="upload-subtext">Click to browse or drag and drop</div>
+                <div class="file-preview" id="filePreview"></div>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+
+            <form id="clothingForm">
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName" placeholder="e.g., Blue Denim Jacket" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select category</option>
+                            <option value="top">Top</option>
+                            <option value="bottom">Bottom</option>
+                            <option value="dress">Dress</option>
+                            <option value="outerwear">Outerwear</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color">Color</label>
+                        <select id="color" required>
+                            <option value="">Select color</option>
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="brown">Brown</option>
+                            <option value="gray">Gray</option>
+                            <option value="beige">Beige</option>
+                            <option value="navy">Navy</option>
+                            <option value="blue">Blue</option>
+                            <option value="red">Red</option>
+                            <option value="pink">Pink</option>
+                            <option value="green">Green</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="multicolor">Multicolor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="season">Season</label>
+                        <select id="season" required>
+                            <option value="">Select season</option>
+                            <option value="spring">Spring</option>
+                            <option value="summer">Summer</option>
+                            <option value="autumn">Autumn</option>
+                            <option value="winter">Winter</option>
+                            <option value="all-season">All Season</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="style">Style</label>
+                        <select id="style" required>
+                            <option value="">Select style</option>
+                            <option value="casual">Casual</option>
+                            <option value="formal">Formal</option>
+                            <option value="business">Business</option>
+                            <option value="streetwear">Streetwear</option>
+                            <option value="athletic">Athletic</option>
+                            <option value="bohemian">Bohemian</option>
+                            <option value="vintage">Vintage</option>
+                            <option value="minimalist">Minimalist</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="occasion">Occasion</label>
+                        <select id="occasion" required>
+                            <option value="">Select occasion</option>
+                            <option value="everyday">Everyday</option>
+                            <option value="work">Work</option>
+                            <option value="party">Party</option>
+                            <option value="date">Date Night</option>
+                            <option value="sport">Sport/Gym</option>
+                            <option value="beach">Beach</option>
+                            <option value="formal-event">Formal Event</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand (Optional)</label>
+                        <input type="text" id="brand" placeholder="e.g., Zara, H&M">
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button type="button" class="cancel-btn" onclick="history.back()">Cancel</button>
+                    <button type="button" class="submit-btn" id="submitBtn" disabled>Add to Closet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="closet.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-import { auth, db, storage } from "./firebase.js";
+import { auth, db, storage } from "../firebase.js";
 import { ref, uploadBytes, getDownloadURL } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 import { addDoc, collection } 
@@ -43,7 +43,6 @@ submitBtn.onclick = async () => {
     });
 
     alert("Item uploaded!");
-    // Optional: Reset form or redirect
   } catch (error) {
     console.error("Upload failed:", error);
     alert("Upload failed. Try again.");

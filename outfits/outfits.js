@@ -1,4 +1,4 @@
-import { auth, db } from "./firebase.js";
+import { auth, db } from "../firebase.js";
 import { collection, getDocs, query, where, doc, getDoc, updateDoc } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -36,3 +36,4 @@ document.getElementById("generateBtn").onclick = async () => {
     lastGenerated: now
   });
 };
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outfit Maker - Create Outfits from What You Own</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <iframe src="../header/header.html" style="border: none; width: 100%; height: 70px; display: block; position: fixed; top: 0; left: 0; z-index: 1000; overflow: hidden;"></iframe>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="outfit-left">
+                <div class="outfit-card">
+                    <img src="../images/outfit1.png" alt="Outfit inspiration" id="outfit-left-img">
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to</h1>
+                <h2 class="hero-subtitle"><span class="highlight">Closetry</span></h2>
+                <p class="hero-description">create outfits from what you own</p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" id="login-btn" onclick="window.location.href='../login/login.html'">Login</button>
+                    <button class="btn btn-secondary" id="register-btn" onclick="window.location.href='../register/register.html'">Register</button>
+                </div>
+            </div>
+
+            <div class="outfit-right">
+                <div class="outfit-card outfit-card-top">
+                    <img src="../images/outfit2.png" alt="Outfit inspiration" id="outfit-right-top-img">
+                </div>
+                <div class="outfit-card outfit-card-bottom">
+                    <img src="../images/outfit3.png" alt="Outfit inspiration" id="outfit-right-bottom-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-banner">
+            <img src="../images/banner.png" alt="Fashion banner" id="banner-img">
+        </div>
+    </section>
+
+    <script src="home.js"></script>
+</body>
+</html>
