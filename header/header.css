@@ -11,7 +11,7 @@ html, body {
 }
 
 header {
-  background-color: rgba(252, 228, 236, 0.95);
+  background-color: rgba(252, 228, 236, 0.603);
   padding: 1rem 3rem;
   display: flex;
   justify-content: space-between;

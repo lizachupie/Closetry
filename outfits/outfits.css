@@ -30,7 +30,7 @@ body {
 }
 
 h1 {
-  color: #8b4513;
+  color: #6b0000;
   font-style: italic;
   margin-bottom: 2rem;
 }
@@ -48,22 +48,22 @@ h1 {
 }
 
 label {
-  color: #8b4513;
+  color: #6b0000;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 select {
   padding: 0.8rem;
-  border: 2px solid #d7ccc8;
+  border: 2px solid #6b0000;
   border-radius: 10px;
   font-family: 'Georgia', serif;
   font-size: 1rem;
-  color: #5d4037;
+  color: #6b0000b4;
 }
 
 .generate-btn {
-  background: linear-gradient(135deg, #d7ccc8 0%, #bcaaa4 100%);
+  background: #6b0000;
   color: white;
   border: none;
   padding: 1rem 3rem;
@@ -106,7 +106,7 @@ select {
 }
 
 .no-outfits {
-  color: #a1887f;
+  color: #6b0000  ;
   font-style: italic;
   margin-top: 2rem;
 }
