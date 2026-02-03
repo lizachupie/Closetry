@@ -23,7 +23,7 @@ body {
   border-radius: 20px;
   padding: 3rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
   text-align: center;
   margin-top: 12.5rem;
@@ -55,15 +55,15 @@ label {
 
 select {
   padding: 0.8rem;
-  border: 2px solid #6b0000;
+  border: 2px solid #d7ccc8;
   border-radius: 10px;
   font-family: 'Georgia', serif;
   font-size: 1rem;
-  color: #6b0000b4;
+  color: #6b0000;
 }
 
 .generate-btn {
-  background: #6b0000;
+  background: #6b000079;
   color: white;
   border: none;
   padding: 1rem 3rem;
@@ -101,12 +101,13 @@ select {
 
 .outfit-item img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: 250px;
+  object-fit: contain;
+  background: white;
 }
 
 .no-outfits {
-  color: #6b0000  ;
+  color: #6b0000;
   font-style: italic;
   margin-top: 2rem;
 }

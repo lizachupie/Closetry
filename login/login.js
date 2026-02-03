@@ -4,23 +4,30 @@ import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/1
 const loginBtn = document.getElementById("loginBtn");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
+const errorMessage = document.getElementById("errorMessage");
+
+const showError = (message) => {
+  errorMessage.textContent = message;
+  errorMessage.style.display = "block";
+  setTimeout(() => {
+    errorMessage.style.display = "none";
+  }, 5000);
+};
 
 loginBtn.addEventListener("click", async () => {
   const email = emailInput.value;
   const password = passwordInput.value;
 
   if (!email || !password) {
-    alert("Please fill in all fields");
+    showError("Please fill in all fields");
     return;
   }
 
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    console.log("Login successful:", userCredential.user);
-    alert("Login successful!");
+    await signInWithEmailAndPassword(auth, email, password);
     window.location.href = "../userpage/userpage.html";
   } catch (error) {
     console.error("Login error:", error.message);
-    alert("Login failed: " + error.message);
+    showError("Login failed: " + error.message);
   }
 });
