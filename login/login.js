@@ -28,6 +28,6 @@ loginBtn.addEventListener("click", async () => {
     window.location.href = "../userpage/userpage.html";
   } catch (error) {
     console.error("Login error:", error.message);
-    showError("Login failed: " + error.message);
+    showError("Login failed: try again");
   }
 });

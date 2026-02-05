@@ -9,7 +9,6 @@ const pageSize = 4;
 let allClothes = [];
 let currentIndex = 0;
 
-const emptyEmojis = ["👗", "👔", "👖", "👠"];
 
 const renderPage = () => {
     clothesGrid.innerHTML = "";
@@ -33,7 +32,7 @@ const renderPage = () => {
         } else {
             const empty = document.createElement("div");
             empty.className = "empty-item";
-            empty.textContent = emptyEmojis[i % emptyEmojis.length];
+            empty.textContent = "";
             card.appendChild(empty);
         }
 
