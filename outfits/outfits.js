@@ -34,7 +34,7 @@ generateBtn.addEventListener("click", async () => {
     const userData = userDoc.data();
 
     const now = Date.now();
-    if (userData.outfitCount >= 3 && now - userData.lastGenerated < 172800000) {
+    if (userData.outfitCount >= 100 && now - userData.lastGenerated < 172800000) {
       alert("Wait 48 hours for a free outfit");
       generateBtn.disabled = false;
       generateBtn.textContent = "Generate Outfit";
@@ -82,8 +82,6 @@ generateBtn.addEventListener("click", async () => {
       card.className = "outfit-item";
       card.innerHTML = `
         <img src="${item.image}" alt="${item.name}">
-        <p>${item.name}</p>
-        <span>${item.type}</span>
       `;
       outfitGrid.appendChild(card);
     });
